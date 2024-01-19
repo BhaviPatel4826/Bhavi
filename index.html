@@ -1,199 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, intital-scale=1.0">
-    <title>Bhavi Patel's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<html>
+<title>EPortfolio: Bhavi Patel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.bgimg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("IMG_0271.jpeg");
+  min-height: 100%;
+}
+  .container {
+  position: relative;
+  width: 60%;
+
+}
+   .container1 {
+  position: relative;
+  width: 100%;     
+ 
+}
+  
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #FFFFFF;
+}
+  .text {
+    color: grey;
+    position: absolute;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+      text-align: center;
+  }
+
+.container:hover .overlay {
+  opacity: 1;
+}
+  .container1:hover .overlay {
+  opacity: 1;
+}
+
+</style>
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="" class="logo">
-                <ul>
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-text">
-                <p> Software Engineer</p>
-                <h1>Hi, I'm <span>Bhavi</span> Patel</h1>
-            </div>
-        </div>
-    </div>
 
+<!-- Sidebar with image -->
+<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%">
+  <div class="bgimg"></div>
+</nav>
 
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="Images/about_me_pic.jpg">
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p><br>Hi, I am Bhavi Patel, recent computer science graduate from University of California, Davis and looking
-                        forward to embark my career as a Software Engineer. 
-                        I am a continuous improver, troubleshooter, completer and organized person. 
-                        I was born in India and moved to the United States of America in 2016, to get more opportunities and build my computer science career. 
-                        I love to code and debug programs which made me chose computer science as my major. Additionally, along with coding I am interested in sports. 
-                        I used to play handball in high school in India.</p>
+<!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+    <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">About</a>
 
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Techinial Skills</span><br><br>Languages: C++, Python, Java, JavaScript, Go, Prolog, Lisp, LaTeX, HTML/CSS<br><br>
-                                Platforms: Microsoft Visual Studio, GitHub , XCode, Linux OS<br><br></li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>Expereince</span><br><br>Full-time MBA Assistant Program Coordinator, UC Davis<br>
-                                <br>Calculus and Computer Science Tutor, Ohlone Community College<br>
-                                <br>Software Engineer Intern, AtHum</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>Education</span><br><br>University of California, Davis
-                                <br>Bachelor of Science in Computer Science <br>GPA 3.8 / 4.0<br><br>
-                                Ohlone Community College, Fremont
-                                <br>Major in Computer Science <br>GPA 3.9 / 4.0
-                                </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <a href="#course" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">My Coursework</a>
+     <a href="#project" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Projects</a>
+    <a href="#volunteer" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Volunteer/Leadership</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
 
-    <div id="projects">
-        <div class="container">
-            <h1 class="sub-title">My Projects</h1>
-            <div class="project-list">
-                <div class="project">
-                    <img src="Images/Nutrrio.png">
-                    <div class="layer">
-                        <h3>Nutrrio</h3>
-                        <p>Nutrrio provides three services which includes giving information about essential nutrition, the process of growing vegetables in the gardens or backyards and connects people to nutritionist if they need some help.
-                            I build with GitHub, HTML , JavaScript and CSS.</p>
-                        <a href="a"> <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                <div class="project">
-                    <img src="Images/internship.png">
-                    <div class="layer">
-                        <h3>AtHum Internship Project</h3>
-                        <p>AtHum is the AI interior designer for real estate. AtHum is adding a new feature to their remote office application. 
-                            The feature adds interactive actions to the images of properties and floorplans within the project that AtHum deploys to the customers. 
-                            The interactive actions include highlighting of selected building section in the image,
-                            the menu actions and displaying of callout which includes the information of the selected section and opens particular section page of the property when clicked. 
-                            To start with, we are given a .svg file which include the interactive image generated by Adobe Illustrator. we needed to deliver .json file or JavaScript object 
-                            notation file which includes all the actions.</p>
-                        
-                    </div>
-                </div>
-                <div class="project">
-                    <img src="Images/path_finder.png">
-                    <div class="layer">
-                        <h3>Shortest Path Finder AI Project</h3>
-                        <p>The finder includes an implementation of an AIModule interface that computes a path 
-                            from the start location to the end location while minimizing the total search space. 
-                            The terrain map is a 2-D world layered on top of a rectangular grid. 
-                            Each point in the world has a height (0 - 255). One can move to any of the eight squares adjacent 
-                            to the current location. The cost to traverse between tiles depends on the differences in height 
-                            between the tiles. The finder could either use Dijkstra's algorithm or Astar 
-                            algorithm to find the optimal path.</p>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="project-list">
-                <div class="project">
-                    <img src="Images/ml_project.png">
-                    <div class="layer">
-                        <h3>American Sign Language Model</h3>
-                        <p>The project includes a neural network analysis on hand signs from the MNIST kaggle dataset. 
-                            American Sign Language is a language expressed by hand and face movements.
-                            Sign Language interpreters interpret ASL in the English language, however, there is a scarcity 
-                            of interpreters. Therefore, the need for a technology-based system is apparent. It is also a 
-                            project for social good which is why it was chosen. In the future we could probably try a dataset 
-                            with different images, for example taking the picture in different lightings and experimenting 
-                            with that to see if we can train the model better.</p>
-                        <a href="https://github.com/BhaviPatel4826/American-Sign-Language-Model"> <i class="fas fa-external-link-alt"></i></a>
-                        
-                    </div>
-                </div>
-                <div class="project">
-                    <img src="">
-                    <div class="layer">
-                        <h3>American Sign Language Model</h3>
-                        <p></p>
-                        
-                    </div>
-                </div>
-                <div class="project">
-                    <img src="">
-                    <div class="layer">
-                        <h3>American Sign Language Model</h3>
-                        <p></p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
+<!-- Page Content -->
+<div class="w3-main w3-padding-large" style="margin-left:40%">
 
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p>bhvpatel@ucdavis.edu</p>
-                    <p>(510)356-7047</p>
-                    <div class="social-icons">
-                        <a href=""><i class="fab fa-facebook"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-linkedin"></i></a>
-                    </div>
-                    <a href="docs/BHAVI PATEL’s RESUME .pdf" class="btn btn2">Download Resume</a>
-                </div>
-                <div class="contact-right">
-                    <form>
-                        <input type="text" name="Name" placeholder="Your Name" requried>
-                        <input type="text" name="Email" placeholder="Your Email" requried>
-                        <textarea name="Message" rows="6" placeholder="Your message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
 
-    <script>
-        var tablinks= document.getElementsByClassName("tab-links")
-        var tabcontents= document.getElementsByClassName("tab-contents")
+  <!-- Header -->
+  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
+    <h1 class="w3-jumbo"><b>Bhavi Patel</b></h1>
+    <p>Computer Science Student</p>
+    <img src="Images/IMG_0271.jpeg" class="w3-image w3-hide-large w3-hide-small w3-round" style="display:block;width:60%;margin:auto;">
+    <img src="Images/IMG_0271.jpeg"  class="w3-image w3-hide-large w3-hide-medium w3-round" width="1000" height="1333">
+  </header>
+  
+    <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+    <h2>About Me</h2>
+    <hr class="w3-opacity">
+    <p>Hi, I am Bhavi Patel, a second-year computer science student at Ohlone Community College, Fremont, California. 
+      I am a continuous improver, troubleshooter, completer and organized person. 
+      I was born in India and moved to the United States of America in 2016, to get more opportunities and build my computer science career. 
+      I love to code and debug programs which made me chose computer science as my major. Additionally, along with coding I am interested in sports. 
+      I used to play handball in high school in India.
+    </p>
+    <h3 class="w3-padding-16">My Skills</h3>
+    <h4 class="w3-wide">Technical Skills</h4>
+    <p class="w3-wide">C++ & C</p>
+    <p class="w3-wide">Assembly</p>
+    <p class="w3-wide">JavaScript and SVG Images</p>
+    <p class="w3-wide">HTML & CSS</p>
+    <p class="w3-wide">Visual Studio Code</p>
+    <p class="w3-wide">Virtual Box</p>
+    <p class="w3-wide">Github</p>
+     <p class="w3-wide">Unreal Engine 4 : C++</p>
+    <p class="w3-wide">Microsoft Office</p>
     
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("active-link")
-            }
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove("active-tab")
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-        }
+    <h3 class="w3-padding-16">Soft Skills</h3>
+     <p class="w3-wide">Organized</p>
+     <p class="w3-wide">Teamwork</p>
+     <p class="w3-wide">Flexible</p>
+    <p class="w3-wide">Trilangual</p>
     
-    </script>
+
+    <!-- CourseWork -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="course">
+    <h3 class="w3-padding-16">My Coursework</h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-center w3-card w3-hover-shadow">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Computer Science</li>
+          <li class="w3-padding-16">CS-102 Intro to Programming Using C++</li>
+          <li class="w3-padding-16">CS-116 C++ Programming: Object Oriented</li>
+          <li class="w3-padding-16">CS-118 Intro Assembly Language Programming</li>
+          <li class="w3-padding-16">CS-124 Programming W/ Data Structures</li>
+          <li class="w3-padding-16">..</li>
+          
+          
+        </ul>
+      </div>
+
+      <div class="w3-half">
+        <ul class="w3-ul w3-center w3-card w3-hover-shadow">
+          <li class="w3-black w3-xlarge w3-padding-32">Physics and Maths</li>
+          <li class="w3-padding-16">PHYS-140 Mechanics</li>
+          <li class="w3-padding-16">PHYS-141 Electricity and Magnetism</li>
+          <li class="w3-padding-16">MATH-101A Calculus with Analytic Geometry</li>
+          <li class="w3-padding-16">MATH-101B Calculus with Analytic Geometry</li>
+          <li class="w3-padding-16">MATH-101C Calculus with Analytic Geometry</li>
+          
+        </ul>
+      </div>
+    <!-- End Grid/Pricing tables -->
+    </div>
+    </div>
+    
+  <!-- End About Section -->
+  </div>
+
+  <!-- Portfolio Section -->
+  <div class="w3-padding-32 w3-content" id="project">
+    <h2 class="w3-text-grey">My Projects</h2>
+    <hr class="w3-opacity">
+
+    <!-- Grid for photos -->
+     <h3 class="w3-text-grey">Nutrrio</h3>
+    <div class="w3-row-padding" style="margin:0 -16px"> 
+       <div class="container1">
+     
+   <img  src="Images/Nutrrio.png" style="width:100%">
+      <div class="overlay">
+        <div class="text">Nutrrio provides three services which includes giving information about essential nutrition, the process of growing vegetables in the gardens or backyards and connects people to nutritionist if they need some help.
+          I build with GitHub and GithubPages. I mainly used HTML and CSS.
+      </div>
+         </div>
+      </div>
+      <h3 class="w3-text-grey">Ohlone Conqueror's War Hackathon</h3>
+     
+ <div class="container">
+  <img src="https://www.guineapigcagesstore.com/resize/Shared/Images/Product/Standard-Grid/standard-grid.jpg?bw=1000&w=1000&bh=1000&h=1000" class="image" alt"The hackathon was orgainsed by PHI club, Ohlone College. It was my first small hackaton.The players had to write a program for a bot which covers most squares in the given time. During the hackathon, I was taking Intro to C++ class, so I knew the basics of C++ and during that time I wrote a simple code for the bot. 
+  I programed the bot to only cover the border of the big square.">
+  <div class="overlay">
+    <div class="text">The hackathon was orgainsed by PHI club, Ohlone College. It was my first small hackaton. 
+      The players had to write a program for a bot which covers most squares in the given time. 
+      During the hackathon, I was taking Intro to C++ class, I knew the basics of C++ ,so I wrote a simple code for the bot. 
+      I programed the bot to only cover the border of the big square. The bot goes in clockwise direction loop, only turning right when it reaches one of the corners of the square.</div>
+  </div>
+</div>   
+   <h3 class="w3-text-grey">AtHum Internship:Interactive SVG Images</h3>
+      <div class="container1">
+   <img  src="Screen Shot 2020-07-27 at 11.47.00 AM.png" 
+        style="width:100%" alt= "">
+        <div class="overlay">
+    <div class="text">AtHum is the AI interior designer for real estate. AtHum is adding a new feature to their remote office application. 
+      The feature adds interactive actions to the images of properties and floorplans within the project that AtHum deploys to the customers. 
+      We were given the responsiblity for deploying this feature in production. The interactive actions include highlighting of selected building section in the image,
+      the menu actions and displaying of callout which includes the information of the selected section and opens particular section page of the property when clicked. 
+      To start with, we are given a .svg file which include the interactive image generated by Adobe Illustrator. we needed to deliver .json file or JavaScript object 
+      notation file which includes all the actions. The file includes three sections: svgActions which are the actions performed when hovered over the image, second 
+      is menu in which the menu and submenu options are includes along with the actions that will be performed if one of the options is selected. 
+      The last one is the callout section, which is the detail box on the top left corner, 
+      displayed when clicked on the image or second level menu options.</div>
+  </div>
+</div>   
+   <!-- End photo grid -->
+    </div>
+  <!-- End Portfolio Section -->
+  </div>
+  
+  <div class="w3-padding-32 w3-content" id="volunteer">
+    <h2 class="w3-text-grey">Volunteer/Leadership</h2>
+     <h3 class="w3-text-grey">Volunteer Work</h3>
+    <p class="w3-text-grey">Old Age Home Helper</p>
+    <p class="w3-text-grey">Anti-Tobacco Campaign</p>
+    <h3 class="w3-text-grey">Leadership</h3>
+    <p class="w3-text-grey">Handball Team Captain, High School, India</p>
+    
+  </div>
+
+
+  <!-- Contact Section -->
+  <div class="w3-padding-32 w3-content w3-text-grey" id="contact" style="margin-bottom:64px">
+    <h2>Contact Me</h2>
+    <hr class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> California, US</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: (510)356-7047</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: bhavi4826@gmail.com</p>
+    </div>
+    
+   
+   
+    <p>Lets get in touch. Send me a message:</p>
+    <form action="mailto:bhavi4826@gmail.com" method=”POST” enctype=”multipart/form-data” name=”EmailForm”>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+  <!-- End Contact Section -->
+  </div>  
+  
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin:-24px">
+     <button class="fa fa-linkedin w3-hover-opacity" type="button" onclick="document.location='https://www.linkedin.com/in/bhavipatel4826/'" >
+  <!-- End footer -->
+  </footer>
+  
+<!-- END PAGE CONTENT -->
+</div>
+
+<script>
+// Open and close sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "60%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+ 
+  
+
+
 </body>
-
 </html>
+
