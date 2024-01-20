@@ -102,8 +102,48 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     white-space:nowrap
 }
 
+/* Page Content*/
 
-  .container {
+.mainContainer{
+    margin-left:40%;
+    margin-right:0;
+    transition:margin-left .4s;
+    padding:12px 24px;
+}
+
+.menuIcon1{
+    top:0;
+    right: 0;
+    color:#000;
+    background-color:#fff;
+    font-size:36px;
+    color:#757575;
+    position:fixed;
+    width:auto;
+    z-index:1;
+    font-size:36px;
+}
+.menuIcon1:hover{color:#000}
+.menuOpen:before{content:"\f0c9"}
+
+/*Header*/
+
+.head{
+    padding: 128px 16px;
+    text-align:center;
+    display:inline-block;
+    width:100%;
+}
+.head:after, .head:before{
+    content:"";
+    display:table;clear:both
+
+}
+
+head h1{font-size:64px;}
+
+
+.container {
   position: relative;
   width: 60%;
 
