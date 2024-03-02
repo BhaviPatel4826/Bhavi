@@ -1,4 +1,4 @@
-const AboutPoge = () => {
+const AboutPage = () => {
     return(
         <div className=" ">AboutPage</div>
     )

@@ -2,6 +2,7 @@
 import Link from "next/link"
 import React, {useState} from 'react';
 import Image from "next/image";
+import NavLink from "./navLink";
 const links = [
     {url: "/", title: "Home"},
     {url: "/about", title: "About"},
@@ -12,23 +13,18 @@ const links = [
 const Navbar = () => {
     const [open, setOpen] = useState(false)
     return(
-        <div className="h-full flex item-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
-          <div className="hidden md:flex gap-4">
+        <div className="flex h-full text-black items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
+          <div className="hidden md:flex gap-4 w-1/2 text-black">
               {links.map(link=>(
-                  <Link href={link.url}>{link.title}</Link>
+                  <NavLink link={link} key={link.title}/>
               ))}
           </div>
-          {/*LOGO*/}
-            <div className="">
-                <Link 
-                    href = "/"
-                    className=" text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center">
-                    <span className="text-white mr-1">Bhavi</span>
-                    <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">.Pat</span>
+         
+            {/* Social Media */}
+            <div className="hidden md:flex  gap-4 w-1/2 justify-end">
+                <Link href = "/">
+                     <Image src= "/github.png" alt="" width={24} height={24} />
                 </Link>
-             </div>
-          
-            <div className="">
                 <Link href = "/">
                      <Image src= "/github.png" alt="" width={24} height={24} />
                 </Link>
@@ -37,7 +33,7 @@ const Navbar = () => {
                 </Link>
              </div>
           {/*RESPONSIVE MENU*/}
-          <div className="md:hidden">
+          <div className="md:hidden justify-end ">
               {/*MENU BUTTON*/}
                 <button className="w-10 h-8 flex flex-col justify-between z-50 relative" 
                 onClick = {() => setOpen((prev) => !prev)}>
